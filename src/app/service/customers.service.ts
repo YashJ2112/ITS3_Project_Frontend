@@ -3,6 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { CUSTOMERS } from './mock-customers';
 import { Customer } from '../model/Customer';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class CustomersService {
 
   constructor(private http: HttpClient) { }
 
-  getCustomers(): Customer[]{
-    return CUSTOMERS;
+  getCustomers(): Observable<Customer[]>{
+    return this.http.get<Customer[]>(this.libraryURL+'/customers');
   }
 }

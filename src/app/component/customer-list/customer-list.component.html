@@ -1,7 +1,7 @@
 <h1>Customer List</h1>
 
 <ul>
-    <li *ngFor = "let customer of customers">
+    <li *ngFor = "let customer of customers | async">
         {{customer.customerNr}}
         {{customer.name}}
         {{customer.book}}
